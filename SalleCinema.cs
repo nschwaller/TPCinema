@@ -58,5 +58,10 @@ namespace Cinéma
             this.NormalVendu = 0;
             this.ReduitVendu = 0;
         }
+
+        public double chiffreAffaire()
+        {
+            return ((this.NormalVendu * tarifN) + (this.ReduitVendu * (tarifN * 0.80)));
+        }
     }
 }
