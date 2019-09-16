@@ -8,14 +8,16 @@ namespace Cinéma
 {
     class SalleCinema
     {
+        private int numeroSalle;
         private string nom;
         private int nbplace;
         private double tarifN;
         private int NormalVendu;
         private int ReduitVendu;
 
-        public SalleCinema(string lenom,int lenbplace, double letarifN)
+        public SalleCinema(string lenom,int lenbplace, double letarifN,int lenumero)
         {
+            this.numeroSalle = lenumero;
             this.nom = lenom;
             this.nbplace = lenbplace;
             this.tarifN = letarifN;
