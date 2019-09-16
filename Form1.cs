@@ -38,16 +38,21 @@ namespace Cinéma
 
         private void Valider_Click(object sender, EventArgs e)
         {
-            int test;
-            test = Convert.ToInt32(tb_numerosalle.Text);
-            foreach(SalleCinema salle in lesSalles)
+            if ((Convert.ToInt32(tb_numerosalle.Text) > 4)|| (Convert.ToInt32(tb_numerosalle.Text) == 0))
             {
-                if (Convert.ToInt32(tb_numerosalle.Text) == salle.getnumerosalle())
+                MessageBox.Show("Erreur de numero de salle");
+            }
+            else
+            {
+                foreach (SalleCinema salle in lesSalles)
                 {
-                    panel1.Visible = false;
-                    cache.Visible = true;
-                    lestring.Text = salle.toString();
-                    labelcache.Text = tb_numerosalle.Text;
+                    if (Convert.ToInt32(tb_numerosalle.Text) == salle.getnumerosalle())
+                    {
+                        //panel1.Visible = false;
+                        cache.Visible = true;
+                        lestring.Text = salle.toString();
+                        labelcache.Text = tb_numerosalle.Text;
+                    }
                 }
             }
         }
@@ -58,10 +63,14 @@ namespace Cinéma
             {
                 if (Convert.ToInt32(labelcache.Text) == salle.getnumerosalle())
                 {
-                    salle.vendrePlaces(Convert.ToInt32(tb_nbplace.Text), cb_reduction.Checked);
-                   // affiche.Text = affichage;
+                  affiche.Text=salle.vendrePlaces(Convert.ToInt32(tb_nbplace.Text), cb_reduction.Checked);
+                  lestring.Text = salle.toString();
+                  chiffreaf.Text =Convert.ToString(salle.chiffreAffaire());
+                  taux.Text = Convert.ToString(salle.tauxRemplissage());
+                  pntout.Visible = true;
                 }
             }
         }
+
     }
 }
