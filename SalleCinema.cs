@@ -27,15 +27,15 @@ namespace Cinéma
         {
             return (nbplace - (NormalVendu + ReduitVendu));
         }
-        
-        public void vendrePlaces(int nbre,bool tarifReduit)
+
+        public void vendrePlaces(int nbre, bool tarifReduit)
         {
-            if ((this.nbPlacesDisponibles()-nbre) > 0)
+            if ((this.nbPlacesDisponibles() - nbre) > 0)
             {
                 double vendre;
                 if (tarifReduit)
                 {
-                    vendre = ((this.tarifN*nbre) * 0.80);
+                    vendre = ((this.tarifN * nbre) * 0.80);
                     MessageBox.show("Vous devez payer " + vendre);
                     this.ReduitVendu += nbre;
                 }
@@ -50,5 +50,13 @@ namespace Cinéma
             {
                 MessageBox.show("Il n'y a pas assez de place disponible pour vous" + vendre);
             }
+
+        }
+
+        public void remiseAZero()
+        {
+            this.NormalVendu = 0;
+            this.ReduitVendu = 0;
+        }
     }
 }
