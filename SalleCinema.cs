@@ -32,25 +32,26 @@ namespace Cinéma
 
         public void vendrePlaces(int nbre, bool tarifReduit)
         {
+            string affichage;
             if ((this.nbPlacesDisponibles() - nbre) > 0)
             {
                 double vendre;
                 if (tarifReduit)
                 {
                     vendre = ((this.tarifN * nbre) * 0.80);
-                    MessageBox.show("Vous devez payer " + vendre);
+                    affichage="Vous devez payer " + vendre;
                     this.ReduitVendu += nbre;
                 }
                 else
                 {
                     vendre = this.tarifN = nbre;
-                    MessageBox.show("Vous devez payer " + vendre);
+                    affichage="Vous devez payer " + vendre;
                     this.NormalVendu += nbre;
                 }
             }
             else
             {
-                MessageBox.show("Il n'y a pas assez de place disponible pour vous" + vendre);
+               affichage="Il n'y a pas assez de place disponible pour vous";
             }
 
         }
@@ -75,6 +76,11 @@ namespace Cinéma
         public string toString()
         {
             return ("Filme joué : " + this.nom + ", \n Nombre de places : " + this.nbplace + " , \n Prix d'une place : " + this.tarifN + " , \n" + this.NormalVendu + " places vendues au tarif normal , \n" + this.ReduitVendu + " places vendues au tarif réduit.");
+        }
+
+        public int getnumerosalle()
+        {
+            return this.numeroSalle;
         }
     }
 }
