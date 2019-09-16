@@ -69,5 +69,10 @@ namespace Cinéma
 
             return ((this.NormalVendu + this.ReduitVendu) / this.nbplace * 100);
         }
+
+        public string toString()
+        {
+            return ("Filme joué : " + this.nom + ", \n Nombre de places : " + this.nbplace + " , \n Prix d'une place : " + this.tarifN + " , \n" + this.NormalVendu + " places vendues au tarif normal , \n" + this.ReduitVendu + " places vendues au tarif réduit.");
+        }
     }
 }
