@@ -63,5 +63,11 @@ namespace Cinéma
         {
             return ((this.NormalVendu * tarifN) + (this.ReduitVendu * (tarifN * 0.80)));
         }
+
+        public double tauxRemplissage()
+        {
+
+            return ((this.NormalVendu + this.ReduitVendu) / this.nbplace * 100);
+        }
     }
 }
