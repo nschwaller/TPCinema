@@ -66,6 +66,7 @@ namespace Cinéma
                   affiche.Text=salle.vendrePlaces(Convert.ToInt32(tb_nbplace.Text), cb_reduction.Checked);
                   lestring.Text = salle.toString();
                   chiffreaf.Text =Convert.ToString(salle.chiffreAffaire());
+                 // MessageBox.Show(Convert.ToString(salle.tauxRemplissage()));
                   taux.Text = Convert.ToString(salle.tauxRemplissage());
                   pntout.Visible = true;
                 }

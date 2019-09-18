@@ -33,7 +33,7 @@ namespace Cinéma
         public string vendrePlaces(int nbre, bool tarifReduit)
         {
             string affichage;
-            if ((this.nbPlacesDisponibles() - nbre) > 0)
+            if ((this.nbPlacesDisponibles() - nbre) >= 0)
             {
                 double vendre;
                 if (tarifReduit)
@@ -70,8 +70,9 @@ namespace Cinéma
 
         public double tauxRemplissage()
         {
-
-            return ((this.NormalVendu + this.ReduitVendu) / this.nbplace * 100);
+            double total = (this.NormalVendu + this.ReduitVendu);
+            double division = total / this.nbplace;
+            return division*100;
         }
 
         public string toString()
